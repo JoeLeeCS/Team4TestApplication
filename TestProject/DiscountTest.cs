@@ -26,7 +26,7 @@ namespace TestProject
             Order newOrder = dc.CalculateDiscount(o);
 
             //verify
-            double expectedValue = 100 + +170 + 50 + 170 + 100;
+            double expectedValue = 100;
 
             Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
             //TODO: add additional verification if necessary
@@ -50,7 +50,7 @@ namespace TestProject
             Order newOrder = dc.CalculateDiscount(o);
 
             //verify
-            double expectedValue = 100 + +170 + 50 + 170 + 100;
+            double expectedValue = 170;
 
             Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
             //TODO: add additional verification if necessary
@@ -74,7 +74,7 @@ namespace TestProject
             Order newOrder = dc.CalculateDiscount(o);
 
             //verify
-            double expectedValue = 100 + +170 + 50 + 170 + 100;
+            double expectedValue = 100 + +170;
 
             Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
             //TODO: add additional verification if necessary
@@ -98,7 +98,7 @@ namespace TestProject
             Order newOrder = dc.CalculateDiscount(o);
 
             //verify
-            double expectedValue = 100 + +170 + 50 + 170 + 100;
+            double expectedValue = 100 + +170 + 50 + 170 + 100 + 10 + 17 + 5 + 17;
 
             Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
             //TODO: add additional verification if necessary
@@ -123,7 +123,7 @@ namespace TestProject
             Order newOrder = dc.CalculateDiscount(o);
 
             //verify
-            double expectedValue = 700 * 0.8 + 10 * 1 * 0.9;
+            double expectedValue = 90;
 
             Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
             //TODO: add additional verification if necessary
