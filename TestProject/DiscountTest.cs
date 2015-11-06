@@ -17,10 +17,82 @@ namespace TestProject
 
             Order o = new Order();
             o.Add(Products.GetProduct("blueDress"), 1);
-            o.Add(Products.GetProduct("redDress"), 3);
-            o.Add(Products.GetProduct("greenDress"), 3);
+            //o.Add(Products.GetProduct("redDress"), 3);
+            //o.Add(Products.GetProduct("greenDress"), 3);
             //o.Add(Products.GetProduct("whiteSocks"), 3);
             //o.Add(Products.GetProduct("redSocks"), 3);
+
+            //exercise
+            Order newOrder = dc.CalculateDiscount(o);
+
+            //verify
+            double expectedValue = 100 + +170 + 50 + 170 + 100;
+
+            Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
+            //TODO: add additional verification if necessary
+        }
+
+        public void Test1ABuy2Item()
+        {
+            //setup
+            Promotion promo = new PromotionOne(); //TODO: setup the promotion as you see fit
+            DiscountCalculator dc = new DiscountCalculator(promo);
+
+
+            Order o = new Order();
+            o.Add(Products.GetProduct("blueDress"), 2);
+            //o.Add(Products.GetProduct("redDress"), 3);
+            //o.Add(Products.GetProduct("greenDress"), 3);
+            //o.Add(Products.GetProduct("whiteSocks"), 3);
+            //o.Add(Products.GetProduct("redSocks"), 3);
+
+            //exercise
+            Order newOrder = dc.CalculateDiscount(o);
+
+            //verify
+            double expectedValue = 100 + +170 + 50 + 170 + 100;
+
+            Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
+            //TODO: add additional verification if necessary
+        }
+
+        public void Test1ABuy3Item()
+        {
+            //setup
+            Promotion promo = new PromotionOne(); //TODO: setup the promotion as you see fit
+            DiscountCalculator dc = new DiscountCalculator(promo);
+
+
+            Order o = new Order();
+            o.Add(Products.GetProduct("blueDress"), 3);
+            //o.Add(Products.GetProduct("redDress"), 3);
+            //o.Add(Products.GetProduct("greenDress"), 3);
+            //o.Add(Products.GetProduct("whiteSocks"), 3);
+            //o.Add(Products.GetProduct("redSocks"), 3);
+
+            //exercise
+            Order newOrder = dc.CalculateDiscount(o);
+
+            //verify
+            double expectedValue = 100 + +170 + 50 + 170 + 100;
+
+            Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
+            //TODO: add additional verification if necessary
+        }
+
+        public void Test1ABuyMultipleItem()
+        {
+            //setup
+            Promotion promo = new PromotionOne(); //TODO: setup the promotion as you see fit
+            DiscountCalculator dc = new DiscountCalculator(promo);
+
+
+            Order o = new Order();
+            o.Add(Products.GetProduct("blueDress"), 1);
+            o.Add(Products.GetProduct("redDress"), 3);
+            o.Add(Products.GetProduct("greenDress"), 3);
+            o.Add(Products.GetProduct("whiteSocks"), 3);
+            o.Add(Products.GetProduct("redSocks"), 3);
 
             //exercise
             Order newOrder = dc.CalculateDiscount(o);
@@ -42,9 +114,9 @@ namespace TestProject
 
             Order o = new Order();
             o.Add(Products.GetProduct("blueDress"), 1);
-            o.Add(Products.GetProduct("redDress"), 3);
-            o.Add(Products.GetProduct("greenDress"), 3);
-            o.Add(Products.GetProduct("whiteSocks"), 1);
+            //o.Add(Products.GetProduct("redDress"), 3);
+            //o.Add(Products.GetProduct("greenDress"), 3);
+            //o.Add(Products.GetProduct("whiteSocks"), 1);
             //o.Add(Products.GetProduct("redSocks"), 3);
 
             //exercise
