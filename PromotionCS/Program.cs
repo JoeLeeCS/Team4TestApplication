@@ -70,7 +70,7 @@ namespace ConsoleApplication1
             result.Append("4: Add a White Socks\n");
             result.Append("5: Add a Red Socks\n");
             result.Append("6: Back to Home\n");
-            var a = "CCCC";
+            var a = "DDDDD";
             return result.ToString();
         }
 
