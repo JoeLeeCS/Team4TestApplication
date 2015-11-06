@@ -11,10 +11,16 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Test1ABuy1Item();
+            //Test1ABuy1Item();
+            Order order = new Order();
+            Promotion promo = new PromotionOne(); //TODO: setup the promotion as you see fit
+            order.Promotion = promo;
+            //DiscountCalculator dc = new DiscountCalculator(promo);
+            List<Order> orders = new List<Order>();
+            orders.Add(order);
             while (true)
             {
-
+                
                 Console.WriteLine(DisplayMainMenu());
                 String a = Console.ReadLine();
 
@@ -25,7 +31,7 @@ namespace ConsoleApplication1
                     {
                         case 1:
                             int optionSelected2 = -1;
-                            if (optionSelected2 != 0)
+                            while (optionSelected2 != 0)
                             {
                                 Console.WriteLine(DisplayProductMenu());
                                 String b = Console.ReadLine();
@@ -35,14 +41,38 @@ namespace ConsoleApplication1
                                     switch (optionSelected2)
                                     {
                                         case 1:
+                                            order.Add(Products.GetProduct("blueDress"), 1);
+                                            break;
+                                        case 2:
+                                            order.Add(Products.GetProduct("redDress"), 1);
+                                            break;
+                                        case 3:
+                                            order.Add(Products.GetProduct("greenDress"), 1);
+                                            break;
+                                        case 4:
+                                            order.Add(Products.GetProduct("whiteSocks"), 1);
+                                            break;
+                                        case 5:
+                                            order.Add(Products.GetProduct("redSocks"), 1);
                                             break;
                                     }
+                                    
+                                    Console.WriteLine("======Total Price: " + order.TotalPrice+"======");
                                 }
                             }
 
 
                             break;
                         case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            Console.WriteLine("======Total Price: " + order.TotalPrice + "======");
+                            break;
+                        case 5:
+                            order = new Order();
+                            orders.Add(order);
                             break;
                     }
                 }
@@ -58,6 +88,7 @@ namespace ConsoleApplication1
             result.Append("2: View Cart\n");
             result.Append("3: Set a Discount\n");
             result.Append("4: Calculate FInal Price\n");
+            result.Append("5: New Order\n");
             return result.ToString();
         }
 
@@ -69,7 +100,7 @@ namespace ConsoleApplication1
             result.Append("3: Add a Green Dress\n");
             result.Append("4: Add a White Socks\n");
             result.Append("5: Add a Red Socks\n");
-            result.Append("6: Back to Home\n");
+            result.Append("0: Back to Home\n");
             var a = "DDDDD";
             return result.ToString();
         }

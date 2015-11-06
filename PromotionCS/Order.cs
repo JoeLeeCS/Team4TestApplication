@@ -98,6 +98,7 @@ namespace PromotionCS
             set { promotion = value; }
         }
 
+        
     }
 
     public class OrderItem
