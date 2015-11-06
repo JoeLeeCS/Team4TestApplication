@@ -101,7 +101,7 @@ namespace ConsoleApplication1
             result.Append("4: Add a White Socks\n");
             result.Append("5: Add a Red Socks\n");
             result.Append("0: Back to Home\n");
-            ttttt
+            fgfffff
             return result.ToString();
         }
 
