@@ -51,7 +51,7 @@ namespace TestProject
             Order newOrder = dc.CalculateDiscount(o);
 
             //verify
-            double expectedValue = 700 * 0.8 + 10 * 1 * 0.9;
+            double expectedValue = 700 * 0.8 + 10 * 1 * 0.9 +1000000;
 
             Assert.AreEqual(expectedValue, newOrder.TotalPrice, 0.001);
             //TODO: add additional verification if necessary

@@ -101,34 +101,7 @@ namespace ConsoleApplication1
             result.Append("4: Add a White Socks\n");
             result.Append("5: Add a Red Socks\n");
             result.Append("0: Back to Home\n");
-            fgfffff
             return result.ToString();
-        }
-
-
-        public static void Test1ABuy1Item()
-        {
-            //setup
-            Promotion promo = new PromotionTwo(); //TODO: setup the promotion as you see fit
-            DiscountCalculator dc = new DiscountCalculator(promo);
-
-
-            Order o = new Order();
-            o.Add(Products.GetProduct("blueDress"), 1);
-            o.Add(Products.GetProduct("redDress"), 3);
-            o.Add(Products.GetProduct("greenDress"), 2);
-            //o.Add(Products.GetProduct("whiteSocks"), 1);
-            //o.Add(Products.GetProduct("redSocks"), 1);
-
-            //exercise
-            Order newOrder = dc.CalculateDiscount(o);
-
-            //verify
-            double expectedValue = 100 * 3 + 10 * 2;//TODO: set the expected value;
-
-            double totalPrice = newOrder.TotalPrice;
-
-            //TODO: add additional verification if necessary
         }
 
         public class Products
