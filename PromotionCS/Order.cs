@@ -98,7 +98,22 @@ namespace PromotionCS
             set { promotion = value; }
         }
 
-        
+        public String toString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in this.Items)
+            {
+                if (sb.Length > 0)
+                {
+                    sb.Append("\n");
+                }
+                sb.Append("Product : " + item.Product.Name);
+                sb.Append("\n");
+                sb.Append("Quantity : " + item.Quantity);
+                sb.Append("\n");
+            }
+            return sb.ToString();
+        }
     }
 
     public class OrderItem

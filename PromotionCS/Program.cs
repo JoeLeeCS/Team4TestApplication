@@ -20,7 +20,7 @@ namespace ConsoleApplication1
             orders.Add(order);
             while (true)
             {
-                
+
                 Console.WriteLine(DisplayMainMenu());
                 String a = Console.ReadLine();
 
@@ -35,7 +35,7 @@ namespace ConsoleApplication1
                             {
                                 Console.WriteLine(DisplayProductMenu());
                                 String b = Console.ReadLine();
-                                if (Int32.TryParse(a, out optionSelected2))
+                                if (Int32.TryParse(b, out optionSelected2))
                                 {
 
                                     switch (optionSelected2)
@@ -56,16 +56,46 @@ namespace ConsoleApplication1
                                             order.Add(Products.GetProduct("redSocks"), 1);
                                             break;
                                     }
-                                    
-                                    Console.WriteLine("======Total Price: " + order.TotalPrice+"======");
+
+                                    Console.WriteLine("======Total Price: " + order.TotalPrice + "======");
                                 }
                             }
 
 
                             break;
                         case 2:
+                            Console.WriteLine(order.toString());
                             break;
                         case 3:
+                            Console.WriteLine(DisplayPromotionType());
+                            String c = Console.ReadLine();
+                            int optionSelected3 = -1;
+                            if (Int32.TryParse(c, out optionSelected3))
+                            {
+                                Promotion promotion = order.Promotion;
+                                switch (optionSelected3)
+                                {
+                                    case 1:
+                                        promotion = new PromotionOne();
+                                        break;
+                                    case 2:
+                                        promotion = new PromotionTwo();
+                                        break;
+                                    case 3:
+                                        promotion = new PromotionThree();
+                                        break;
+                                    case 4:
+                                        promotion = null;
+                                        break;
+                                    case 0:
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                order.Promotion = promotion;
+
+                                Console.WriteLine("======Total Price with selected Promotion: " + order.TotalPrice + "======");
+                            }
                             break;
                         case 4:
                             Console.WriteLine("======Total Price: " + order.TotalPrice + "======");
@@ -73,6 +103,9 @@ namespace ConsoleApplication1
                         case 5:
                             order = new Order();
                             orders.Add(order);
+                            break;
+                        case 6:
+                            Console.WriteLine("Checking out is not yet supported.");
                             break;
                     }
                 }
@@ -84,23 +117,44 @@ namespace ConsoleApplication1
         private static String DisplayMainMenu()
         {
             StringBuilder result = new StringBuilder();
+            result.Append("\n\n------------------------\n");
             result.Append("1: Add a product\n");
             result.Append("2: View Cart\n");
             result.Append("3: Set a Discount\n");
             result.Append("4: Calculate FInal Price\n");
             result.Append("5: New Order\n");
+            result.Append("6: Check out\n");
+            result.Append("------------------------\n");
+            result.Append("User Input : ");
             return result.ToString();
         }
 
         private static String DisplayProductMenu()
         {
             StringBuilder result = new StringBuilder();
+            result.Append("\n\n------------------------\n");
             result.Append("1: Add a Blue Dress\n");
             result.Append("2: Add a Red Dress\n");
             result.Append("3: Add a Green Dress\n");
             result.Append("4: Add a White Socks\n");
             result.Append("5: Add a Red Socks\n");
             result.Append("0: Back to Home\n");
+            result.Append("------------------------\n");
+            result.Append("User Input : ");
+            return result.ToString();
+        }
+
+        private static String DisplayPromotionType()
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append("\n\n------------------------\n");
+            result.Append("1: Promotion 1\n");
+            result.Append("2: Promotion 2\n");
+            result.Append("3: Promotion 3\n");
+            result.Append("4: No Promotion\n");
+            result.Append("0: Back to Home\n");
+            result.Append("------------------------\n");
+            result.Append("User Input : ");
             return result.ToString();
         }
 
