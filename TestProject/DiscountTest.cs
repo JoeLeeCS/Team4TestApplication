@@ -192,7 +192,7 @@ namespace TestProject
             o.Add(Products.GetProduct("redDress"), 3);
             o.Add(Products.GetProduct("greenDress"), 3);
             o.Add(Products.GetProduct("whiteSocks"), 1);
-            o.Add(Products.GetProduct("womansInvisibleSocks"), 1);
+            o.Add(Products.GetProduct("womansInvisibleSocks"), 1); ;
 
             //exercise
             Order newOrder = dc.CalculateDiscount(o);
